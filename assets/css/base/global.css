@@ -1,0 +1,204 @@
+/* Estilos globais e utilitários */
+body {
+  font-family: var(--font-plex);
+  color: var(--forge-bigorna);
+  background: var(--white);
+  overflow-x: clip;
+}
+
+/* Impede que animações laterais (scroll reveal) criem rolagem horizontal */
+main {
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display, var(--font-plex));
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Tiny5 só tem o peso regular: evita o "negrito falso" do navegador */
+.theme-forge :is(h1, h2, h3) {
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--forge-chama);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--forge-faisca);
+  color: var(--forge-bigorna);
+}
+
+.container {
+  width: min(100% - 2 * var(--gutter), var(--container));
+  margin-inline: auto;
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Esconde visualmente, mas mantém para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--forge-bigorna);
+  color: var(--white);
+  transform: translateY(-200%);
+  transition: transform 0.2s;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Etiquetas (chips) */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Link de texto com seta animada (sublinhado na cor de destaque) */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.link-arrow .icon {
+  transition: transform 0.25s var(--ease-out);
+}
+
+.link-arrow:hover .icon {
+  transform: translateX(4px);
+}
+
+/* Lista com marcadores de "check" (verde = saudável, no VITA) */
+.check-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 2.5rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--vita-verde);
+}
+
+.check-list li::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 0.55rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  background: var(--vita-grafite);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'%3E%3Cpath d='m4.5 12.5 5 5L19.5 7'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'%3E%3Cpath d='m4.5 12.5 5 5L19.5 7'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Barra de progresso de rolagem: as três fagulhas da marca */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 150;
+  height: 4px;
+  background: linear-gradient(90deg, var(--forge-faisca) 33%, var(--forge-brasa) 33% 66%, var(--forge-chama) 66%);
+  transform-origin: left;
+  transform: scaleX(var(--scroll-progress, 0));
+}
+
+/* Botão "voltar ao topo" */
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 2px;
+  background: var(--forge-bigorna);
+  color: var(--white);
+  box-shadow: 4px 4px 0 var(--forge-faisca);
+  font-size: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s var(--ease-out), visibility 0.3s, background 0.2s, color 0.2s;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.back-to-top:hover {
+  background: var(--forge-faisca);
+  color: var(--forge-bigorna);
+  box-shadow: 4px 4px 0 var(--forge-bigorna);
+}
+
+/* Nota de rodapé de seção */
+.note {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}

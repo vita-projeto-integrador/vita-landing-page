@@ -1,0 +1,111 @@
+/* Contato: canais + formulário */
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Quadrados da marca no canto */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  right: 6%;
+  width: 28px;
+  height: 28px;
+  background: var(--forge-chama);
+  box-shadow: 28px 28px 0 var(--forge-brasa), 0 56px 0 var(--forge-faisca);
+  animation: float 8s ease-in-out infinite;
+}
+
+.contact__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: start;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.contact__text {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+}
+
+.contact__channels {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  font-style: normal;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  text-decoration: none;
+  transition: background 0.25s, transform 0.3s var(--ease-out);
+}
+
+.channel:hover {
+  border-color: var(--forge-faisca);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(6px);
+}
+
+.channel img {
+  width: 40px;
+  height: 40px;
+}
+
+.channel small {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 4px;
+  background: var(--white);
+  box-shadow: 12px 12px 0 var(--forge-faisca);
+  color: var(--forge-bigorna);
+}
+
+.contact-form .btn {
+  margin-top: 0.5rem;
+}
+
+.contact-form .btn.is-loading {
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.contact-form__status {
+  min-height: 1.5em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contact-form__status.is-success {
+  color: #2e7d32;
+  animation: panel-in 0.4s var(--ease-out);
+}
+
+.contact-form__status.is-error {
+  color: #c62828;
+}
+
+@media (max-width: 860px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}

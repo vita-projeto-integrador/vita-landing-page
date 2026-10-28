@@ -1,0 +1,50 @@
+/* Campos de formulário (contato, tema ByteForge: cantos retos) */
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--forge-bigorna);
+}
+
+.field__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--forge-bigorna-20);
+  border-radius: 2px;
+  background: var(--forge-bigorna-05);
+  color: var(--forge-bigorna);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+textarea.field__input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field__input:hover {
+  border-color: var(--forge-bigorna-80);
+}
+
+/* Foco: borda Bigorna + "sombra pixel" Faísca */
+.field__input:focus {
+  outline: none;
+  border-color: var(--forge-bigorna);
+  background: var(--white);
+  box-shadow: 4px 4px 0 var(--forge-faisca);
+}
+
+/* Estado de erro (aria-invalid é definido pelo JS) */
+.field__input[aria-invalid="true"] {
+  border-color: #c62828;
+  background: #fff6f6;
+}
+
+.field__error {
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  color: #c62828;
+}

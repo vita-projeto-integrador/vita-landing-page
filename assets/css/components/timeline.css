@@ -1,0 +1,122 @@
+/*
+  Timeline do fluxo de processamento.
+  Reaproveita tabs.js: a linha laranja cresce conforme --active-index.
+*/
+.timeline {
+  --point: 84px;
+  --tab-count: 4;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.timeline__steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+/* Trilho (cinza) e preenchimento (gradiente) */
+.timeline__steps::before,
+.timeline__steps::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--point) / 2 - 3px);
+  left: calc(var(--point) / 2);
+  height: 6px;
+  border-radius: var(--radius-pill);
+}
+
+.timeline__steps::before {
+  right: calc(var(--point) / 2);
+  background: var(--vita-creme-200);
+}
+
+.timeline__steps::after {
+  width: calc((100% - var(--point)) * var(--active-index, 0) / (var(--tab-count) - 1));
+  background: linear-gradient(90deg, var(--vita-verde), var(--vita-laranja));
+  transition: width 0.6s var(--ease-out);
+}
+
+.timeline__point {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: var(--point);
+}
+
+.timeline__number {
+  display: grid;
+  place-items: center;
+  width: var(--point);
+  height: var(--point);
+  border-radius: 50%;
+  border: 5px solid var(--vita-creme-200);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--vita-grafite);
+  transition: transform 0.35s var(--ease-spring), background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.timeline__point:hover .timeline__number {
+  transform: scale(1.1);
+  border-color: var(--vita-laranja);
+}
+
+.timeline__point[aria-selected="true"] .timeline__number {
+  background: var(--vita-laranja);
+  border-color: var(--vita-laranja);
+  color: var(--vita-grafite);
+  box-shadow: 0 12px 30px rgba(237, 132, 11, 0.35);
+}
+
+.timeline__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--color-text-muted);
+}
+
+.timeline__point[aria-selected="true"] .timeline__label {
+  color: var(--vita-grafite);
+}
+
+.timeline__panel {
+  max-width: 860px;
+  min-height: 190px;
+  margin-inline: auto;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  animation: panel-in 0.45s var(--ease-out);
+}
+
+.timeline__panel h3 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 600;
+}
+
+.timeline__panel p {
+  font-size: 1.15rem;
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    --point: 56px;
+  }
+
+  .timeline__label {
+    font-size: 0.75rem;
+    white-space: normal;
+    text-align: center;
+  }
+}

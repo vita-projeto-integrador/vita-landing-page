@@ -1,0 +1,102 @@
+/*
+  Design tokens: as paletas dos manuais de identidade visual (v1.0, out/2026).
+  Os temas (.theme-forge e .theme-vita) apontam para elas,
+  e os componentes usam só os nomes "semânticos" (--color-accent, --font-display...).
+*/
+:root {
+  /* ByteForge */
+  --forge-bigorna: #293462; /* primária: base, texto, fundos */
+  --forge-faisca: #f7d716;  /* destaque e estados ativos — nunca em texto */
+  --forge-brasa: #ec9b3b;   /* destaque gráfico */
+  --forge-chama: #f24c4c;   /* destaque gráfico, alertas */
+
+  /* Tons derivados da Bigorna (texto secundário, bordas e fundos de apoio) */
+  --forge-bigorna-80: #4a5280;
+  --forge-bigorna-20: #d4d6e0;
+  --forge-bigorna-05: #f4f5f8;
+  --forge-on-dark: #d9dcea;
+
+  /* VITA */
+  --vita-laranja: #ed840b;       /* primária: logotipo, destaques */
+  --vita-verde: #10b981;         /* destaque: saudável, sucesso */
+  --vita-verde-escuro: #10af7a;  /* fundos verdes, hover */
+  --vita-creme: #fffbeb;         /* fundo principal */
+  --vita-grafite: #1c1917;       /* texto e ícones de interface */
+
+  /* Tons derivados */
+  --vita-laranja-hover: #d97706;
+  --vita-laranja-15: rgba(237, 132, 11, 0.15);
+  --vita-grafite-70: #57534e;
+  --vita-creme-200: #f3ead0;
+
+  --white: #fff;
+
+  /* Tipografia dos manuais */
+  --font-tiny5: "Tiny5", "Courier New", monospace;
+  --font-plex: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-plex-mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+  --font-lexend: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-inter: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Espaçamento, sombras e movimento */
+  --container: 1200px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-height: 68px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 4px 12px rgba(28, 25, 23, 0.08);
+  --shadow-md: 0 12px 30px rgba(28, 25, 23, 0.12);
+  --shadow-lg: 0 24px 60px rgba(28, 25, 23, 0.18);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Empresa: pixel, cantos retos, Tiny5 nos títulos */
+.theme-forge {
+  --font-body: var(--font-plex);
+  --font-display: var(--font-tiny5);
+  --font-label: var(--font-plex-mono);
+  --color-bg: var(--white);
+  --color-text: var(--forge-bigorna);
+  --color-text-muted: var(--forge-bigorna-80);
+  --color-title: var(--forge-bigorna);
+  --color-accent: var(--forge-faisca);
+  --color-on-accent: var(--forge-bigorna); /* Bigorna sobre Faísca: 8,3:1 */
+  --color-accent-hover: var(--forge-brasa);
+  --color-surface: var(--forge-bigorna-05);
+  --color-border: var(--forge-bigorna-20);
+  --radius-btn: 2px;
+  --radius-card: 4px;
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+/* Variação escura (fundo Bigorna) para hero, soluções, contato e rodapé */
+.theme-forge--dark {
+  --color-bg: var(--forge-bigorna);
+  --color-text: var(--white);
+  --color-text-muted: var(--forge-on-dark);
+  --color-title: var(--white);
+  --color-border: rgba(255, 255, 255, 0.15);
+  background-color: var(--forge-bigorna);
+}
+
+/* Produto: formas arredondadas, Lexend nos títulos, textos em Grafite */
+.theme-vita {
+  --font-body: var(--font-inter);
+  --font-display: var(--font-lexend);
+  --font-label: var(--font-inter);
+  --color-bg: var(--vita-creme);
+  --color-text: var(--vita-grafite);
+  --color-text-muted: var(--vita-grafite-70);
+  --color-title: var(--vita-grafite);
+  --color-accent: var(--vita-laranja);
+  --color-on-accent: var(--vita-grafite); /* Grafite sobre Laranja: 6,6:1 */
+  --color-accent-hover: var(--vita-laranja-hover);
+  --color-surface: var(--white);
+  --color-border: var(--vita-creme-200);
+  --radius-btn: var(--radius-pill);
+  --radius-card: 24px;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--vita-creme);
+}

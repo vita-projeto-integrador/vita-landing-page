@@ -1,0 +1,89 @@
+/*
+  Carrossel com scroll-snap nativo: arrastar/deslizar funciona sem JS.
+  O JS só adiciona setas, pontos e reprodução automática.
+  --per-view define quantos slides aparecem lado a lado.
+*/
+.carousel {
+  --per-view: 1;
+  --gap: 1.5rem;
+}
+
+.carousel__track {
+  display: flex;
+  gap: var(--gap);
+  padding-block: 1rem 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__slide {
+  flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+  scroll-snap-align: start;
+  display: flex;
+}
+
+.carousel__slide > * {
+  flex: 1;
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.carousel__btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  font-size: 1.2rem;
+  transition: background 0.25s, color 0.25s, transform 0.25s var(--ease-out);
+}
+
+.carousel__btn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+  transform: scale(1.08);
+}
+
+/* ByteForge: setas quadradas */
+.theme-forge .carousel__btn {
+  border-radius: 2px;
+}
+
+.carousel__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-btn);
+  background: currentColor;
+  opacity: 0.3;
+  transition: width 0.35s var(--ease-out), opacity 0.35s, background 0.35s;
+}
+
+.carousel__dot[aria-current="true"] {
+  width: 30px;
+  opacity: 1;
+  background: var(--color-accent);
+}
+
+/* Sem JS não há setas nem pontos: o usuário apenas desliza */
+html:not(.js) .carousel__controls {
+  display: none;
+}

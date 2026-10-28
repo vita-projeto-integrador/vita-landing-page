@@ -1,0 +1,112 @@
+/* Soluções: fundo Bigorna com carrossel de projetos */
+.solutions {
+  border-top-right-radius: clamp(48px, 9vw, 120px);
+}
+
+.carousel--projects {
+  --gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .carousel--projects {
+    --per-view: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel--projects {
+    --per-view: 3;
+  }
+}
+
+/* O card é branco: volta às cores do tema claro */
+.project-card {
+  --color-text: var(--forge-bigorna);
+  --color-text-muted: var(--forge-bigorna-80);
+  --color-title: var(--forge-bigorna);
+  --color-border: var(--forge-bigorna-20);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  color: var(--color-text);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--forge-faisca);
+}
+
+.project-card__media {
+  height: 200px;
+  padding: 1.5rem;
+  background: var(--forge-bigorna-05);
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .project-card__media img {
+  transform: scale(1.06);
+}
+
+/* Fundos combinando com cada logo */
+.project-card__media--dark  { background: #2f475f; }
+.project-card__media--sky   { background: #a8d6ff; }
+.project-card__media--cream { background: #fffde9; }
+
+/* Logo do Heat Navigation é largo dentro de um quadrado: recortamos as sobras */
+.project-card__media--dark img { object-fit: cover; }
+
+/* VITA: o mockup oficial do cartão ocupa toda a área */
+.project-card__media--vita { padding: 0; }
+.project-card__media--vita img { object-fit: cover; }
+
+.project-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.project-card__text {
+  flex: 1;
+  color: var(--color-text-muted);
+}
+
+.project-card__tag {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* 24 px: tamanho mínimo recomendado para a Tiny5 */
+.project-card__title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Selo do VITA usa as cores do produto */
+.project-card__badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--vita-laranja);
+  color: var(--vita-grafite);
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 600;
+}

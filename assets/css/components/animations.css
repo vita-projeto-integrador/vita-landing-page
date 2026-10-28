@@ -1,0 +1,81 @@
+/*
+  Scroll reveal: elementos com [data-reveal] começam invisíveis
+  e recebem .is-revealed quando entram na tela (scroll-reveal.js).
+  A classe .js garante que, sem JavaScript, nada fique escondido.
+  Variações: data-reveal="left" | "right" | "zoom" (padrão: de baixo para cima)
+*/
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal="left"] {
+  transform: translateX(-48px);
+}
+
+.js [data-reveal="right"] {
+  transform: translateX(48px);
+}
+
+.js [data-reveal="zoom"] {
+  transform: scale(0.92);
+}
+
+/* No celular, as entradas laterais viram verticais */
+@media (max-width: 760px) {
+  .js [data-reveal="left"],
+  .js [data-reveal="right"] {
+    transform: translateY(40px);
+  }
+}
+
+.js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Animações reaproveitáveis */
+@keyframes float {
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes float-rotate {
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+@keyframes blob-morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  }
+
+  33% {
+    border-radius: 63% 37% 45% 55% / 55% 61% 39% 45%;
+  }
+
+  66% {
+    border-radius: 38% 62% 35% 65% / 62% 37% 63% 38%;
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes fill-bar {
+  from {
+    transform: scaleX(0);
+  }
+}

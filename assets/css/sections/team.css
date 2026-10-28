@@ -1,0 +1,120 @@
+/* Equipe: blocos em pixel (abas) + foto do integrante selecionado */
+.team {
+  border-top-left-radius: clamp(48px, 9vw, 120px);
+}
+
+.team__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.team__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+/* Blocos com cantos retos, como os pixels do logotipo */
+.team__member {
+  --spark: var(--forge-faisca);
+  grid-column: span 2;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 1;
+  padding: 0.9rem;
+  border-radius: 0;
+  background: var(--forge-bigorna);
+  color: var(--white);
+  font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  text-transform: uppercase;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s, background 0.2s, color 0.2s;
+}
+
+/* Centraliza os dois últimos blocos na segunda linha */
+.team__member:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+/* "Fagulha" no canto: quadrado fixo, sem animação */
+.team__member::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  background: var(--spark);
+}
+
+.team__member--brasa { --spark: var(--forge-brasa); }
+.team__member--chama { --spark: var(--forge-chama); }
+
+.team__member:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--forge-bigorna-20);
+}
+
+/* Selecionado: fundo Faísca com texto Bigorna (8,3:1) */
+.team__member[aria-selected="true"] {
+  --spark: var(--forge-bigorna);
+  background: var(--forge-faisca);
+  color: var(--forge-bigorna);
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--forge-bigorna);
+}
+
+.team__profiles {
+  text-align: center;
+}
+
+.team__profile {
+  animation: profile-in 0.5s var(--ease-out);
+}
+
+.team__profile img {
+  width: min(280px, 70vw);
+  aspect-ratio: 1;
+  margin: 0 auto 1.5rem;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 10px 10px 0 var(--forge-faisca);
+}
+
+.team__profile figcaption {
+  color: var(--color-text-muted);
+}
+
+.team__profile strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-tiny5);
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-title);
+}
+
+@keyframes profile-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 760px) {
+  .team__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team__profiles {
+    order: -1;
+  }
+}

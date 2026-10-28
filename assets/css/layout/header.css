@@ -1,0 +1,203 @@
+/*
+  Header flutuante da ByteForge: fixo no topo, com vidro fosco e cantos retos.
+  Todos os botões (links e CTA) usam a mesma base .site-nav__link;
+  o CTA só muda a cor de fundo (Faísca), como manda o manual para "estados ativos/destaque".
+  Estado controlado pelo JS: .is-scrolled (após rolar um pouco).
+*/
+.site-header {
+  position: fixed;
+  top: 12px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  font-family: var(--font-plex);
+  animation: header-in 0.8s var(--ease-out) both;
+}
+
+.site-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100% - 24px, var(--container));
+  height: var(--header-height);
+  margin-inline: auto;
+  padding: 0 0.75rem 0 1.25rem;
+  border: 1px solid var(--forge-bigorna-20);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-sm);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  transition: height 0.35s var(--ease-out), background 0.35s, box-shadow 0.35s;
+}
+
+.site-header.is-scrolled .site-header__inner {
+  height: 60px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+/* Assinatura horizontal oficial (138 px = escala inteira do módulo, u = 3 px) */
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand img {
+  width: 138px;
+  height: auto;
+}
+
+/* Navegação */
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Base comum a todos os botões do header */
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 0.9rem;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--forge-bigorna);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.site-nav__link:hover {
+  border-color: var(--forge-bigorna-20);
+  background: var(--forge-bigorna-05);
+}
+
+.site-nav__link.is-active {
+  background: var(--forge-bigorna);
+  color: var(--white);
+}
+
+/* CTA: mesmo formato, só a cor de destaque */
+.site-nav__link--cta {
+  margin-left: 0.5rem;
+  background: var(--forge-faisca);
+}
+
+.site-nav__link--cta:hover {
+  border-color: transparent;
+  background: var(--forge-brasa);
+}
+
+/* Botão hambúrguer (só aparece no mobile) */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 2px;
+  place-items: center;
+  background: var(--forge-bigorna);
+}
+
+.nav-toggle__bar,
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s var(--ease-out), background 0.2s;
+}
+
+.nav-toggle__bar {
+  position: relative;
+}
+
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle__bar::before {
+  transform: translateY(-6px);
+}
+
+.nav-toggle__bar::after {
+  transform: translateY(6px);
+}
+
+/* Ícone vira um "X" quando o menu está aberto */
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::before {
+  transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: grid;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    border: 1px solid var(--forge-bigorna-20);
+    border-radius: 6px;
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.3s, transform 0.3s var(--ease-out), visibility 0.3s;
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .site-nav__link {
+    width: 100%;
+    height: 48px;
+  }
+
+  .site-nav__link--cta {
+    margin: 0.5rem 0 0;
+    justify-content: center;
+  }
+}
+
+@keyframes header-in {
+  from {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+}

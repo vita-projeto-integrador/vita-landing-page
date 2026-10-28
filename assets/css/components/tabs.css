@@ -1,0 +1,127 @@
+/*
+  Abas ("O que é?"). O JS (tabs.js) troca aria-selected/hidden
+  e informa o índice ativo em --active-index para o indicador deslizar.
+*/
+.tabs {
+  --tab-count: 3;
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.tabs__list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--tab-count), 1fr);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabs__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.5rem 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+}
+
+.tabs__tab:hover,
+.tabs__tab[aria-selected="true"] {
+  color: var(--color-text);
+}
+
+.tabs__tab[aria-selected="true"] {
+  font-weight: 600;
+}
+
+/* Bolinha indicadora (verde = ponto de atenção, como no logotipo) */
+.tabs__dot {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.tabs__dot::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vita-verde);
+  transform: scale(0);
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.tabs__tab[aria-selected="true"] .tabs__dot {
+  border-color: var(--vita-verde);
+}
+
+.tabs__tab[aria-selected="true"] .tabs__dot::after {
+  transform: scale(1);
+}
+
+/* Linha que desliza até a aba ativa */
+.tabs__indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: calc(100% / var(--tab-count));
+  height: 3px;
+  border-radius: 3px;
+  background: var(--vita-laranja);
+  transform: translateX(calc(var(--active-index, 0) * 100%));
+  transition: transform 0.45s var(--ease-out);
+}
+
+.tabs__panel {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  animation: panel-in 0.5s var(--ease-out);
+}
+
+.tabs__text h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.tabs__text p + p {
+  margin-top: 0.75rem;
+}
+
+.tabs__image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 760px) {
+  .tabs__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs__image {
+    aspect-ratio: 16 / 10;
+    order: -1;
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+}

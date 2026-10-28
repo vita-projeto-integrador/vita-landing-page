@@ -1,0 +1,73 @@
+/* Estrutura comum às seções: espaçamento, cabeçalho, títulos e "eyebrow" */
+.section {
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+}
+
+/* Fundo alternativo do tema (ByteForge: tom claro da Bigorna; VITA: branco) */
+.section--tinted {
+  background: var(--color-surface);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.section-title {
+  margin-block: 0.75rem 1rem;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  color: var(--color-title);
+}
+
+.section-lead {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+}
+
+/* Pequeno rótulo acima do título */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* ByteForge: Tiny5 em caixa alta + "fagulhas" em pixel antes do rótulo */
+.theme-forge .section-title {
+  text-transform: uppercase;
+}
+
+.theme-forge .eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin: 12px 12px 0 0;
+  background: var(--forge-faisca);
+  box-shadow: 6px -6px 0 var(--forge-brasa), 0 -12px 0 var(--forge-chama);
+}
+
+/* VITA: Lexend SemiBold em Grafite; rótulo Inter em caixa alta (+8%) numa pílula */
+.theme-vita .section-title {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.theme-vita .eyebrow {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--vita-laranja-15);
+}
+
+.theme-vita .eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vita-laranja);
+}

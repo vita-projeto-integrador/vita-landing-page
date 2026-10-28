@@ -1,501 +1,1115 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ByteForge - Nossa Página</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/img/logo-negative.png">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Estilos personalizados (carregado por último para sobrescrever o Bootstrap quando necessário) -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>ByteForge | A excelência no desenvolvimento de software</title>
+  <meta name="description"
+    content="ByteForge: fábrica de software fictícia criada para o Projeto Integrador. Conheça o VITA, app de visão computacional para o pré-diagnóstico da pinta preta dos citros.">
+  <meta name="theme-color" content="#293462">
+
+  <!-- Favicon oficial (manual ByteForge): SVG para navegadores modernos, ICO/PNG como reserva -->
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Aprimoramento progressivo: animações de entrada só existem se o JS carregar -->
+  <script>
+    document.documentElement.classList.add('js');
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (!document.documentElement.dataset.ready) document.documentElement.classList.remove('js');
+      }, 300);
+    });
+  </script>
+
+  <!--
+    Scripts com "defer": baixam em paralelo e executam na ordem, após o HTML.
+    Diferente de type="module", funcionam também abrindo o arquivo direto do disco.
+  -->
+  <script defer src="assets/js/utils.js"></script>
+  <script defer src="assets/js/modules/header.js"></script>
+  <script defer src="assets/js/modules/scroll-reveal.js"></script>
+  <script defer src="assets/js/modules/showcase.js"></script>
+  <script defer src="assets/js/modules/carousel.js"></script>
+  <script defer src="assets/js/modules/tabs.js"></script>
+  <script defer src="assets/js/modules/flip-cards.js"></script>
+  <script defer src="assets/js/modules/counters.js"></script>
+  <script defer src="assets/js/modules/contact-form.js"></script>
+  <script defer src="assets/js/main.js"></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <header id="header-byteforge" class="byte-forge">
-    <div class="container">
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
-      <!-- Menu de navegação -->
-      <nav id="navbar-byteforge">
-        <p><a href="#quem">Quem somos</a></p>
-        <p><a href="#quem">O que fazemos</a></p>
-        <p><a href="#carousel-container">Soluções</a></p>
-        <p><a href="#projeto">Último Projeto</a></p>
-        <p><a href="#equipe">Equipe</a></p>
+  <!-- ===================== CABEÇALHO FLUTUANTE ===================== -->
+  <header class="site-header theme-forge" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="#inicio" aria-label="ByteForge — voltar ao início">
+        <img src="assets/img/brand/byteforge-horizontal-positiva.svg" alt="ByteForge" width="138" height="45">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" data-nav-toggle>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal" data-nav>
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#quem-somos">Quem somos</a></li>
+          <li><a class="site-nav__link" href="#solucoes">Soluções</a></li>
+          <li><a class="site-nav__link" href="#vita">Projeto VITA</a></li>
+          <li><a class="site-nav__link" href="#equipe">Equipe</a></li>
+          <li><a class="site-nav__link site-nav__link--cta" href="#contato">Vamos conversar</a></li>
+        </ul>
       </nav>
-
-
-      <div class="d-flex align-items-center justify-content-between flex-wrap gap-5 px-3">
-
-
-        <div class="text-start">
-          <img src="assets/img/logo-positive.png" alt="Logo ByteForge" class="img-fluid mb-3" style="max-width: 250px;">
-          <p class="text-muted">A excelência no desenvolvimento<br>de software.</p>
-        </div>
-
-
-        <div id="carousellogo">
-          <img id="mockup-01" src="assets/img/mockup-03.png" alt="Mockup desktop" style="display:flex;">
-          <img id="mockup-02" src="assets/img/mockup-05.png" alt="Mockup tablet">
-          <img id="mockup-03" src="assets/img/mockup-06.png" alt="Mockup mobile">
-          <img id="mockup-04" src="assets/img/mockup-11.png" alt="Mockup mobile">
-          <img id="mockup-05" src="assets/img/mockup-15.png" alt="Mockup mobile">
-          <img id="mockup-06" src="assets/img/mockup-04.png" alt="Mockup mobile">
-        </div>
-
-      </div>
     </div>
   </header>
 
+  <main id="conteudo">
 
-
-  <section id="quem" class="byte-forge">
-    <div class="container">
-
-      <h2 class="section-title">QUEM SOMOS?</h2>
-      <h3 class="section-subtitle">UMA VISÃO SOBRE O MERCADO DE SOFTWARE</h3>
-      <p class="section-text">
-        Seu negócio não precisa se aventurar em tendências passageiras ou promessas milagrosas.<br>
-        Procuram-se solucionadores de problemas que possam compreender e executar aquilo que o cliente deseja, de forma
-        eficiente e segura.<br>
-        É assim que a Byteforge desenvolve o seu software:<br>
-        <strong>A chama da criatividade</strong> e uma <strong>sólida base técnica</strong> forjam a excelência.
-      </p>
-
-      <a href="#contato" class="btn-forge">VAMOS CONVERSAR</a>
-
-      <h2 class="section-title mt-5">O QUE FAZEMOS?</h2>
-      <h3 class="section-subtitle">PRODUTOS DE SOFTWARE COM EXCELÊNCIA</h3>
-      <p class="section-text">
-        Nossos sistemas atendem grandes empresas, novos empreendimentos e comunidades inteiras nos ramos de
-        administração, venda, comunicação, educação e muitos outros.<br>
-        Utilizamos tanto <strong>tecnologias bem fundamentadas</strong> como <strong>disruptivas</strong> para
-        proporcionar resultados inovadores ao seu negócio, com os menores riscos possíveis.<br>
-        Desenvolver sistemas de informação não é uma tarefa simples – é uma <strong>atividade essencial</strong> dentro
-        de um mundo interconectado e de altas velocidades.
-      </p>
-
-      <p class="section-text fw-semibold mt-3">Conheça nossas soluções abaixo:</p>
-
-    </div>
-  </section>
-
-
-  <div id="carousel-container" class="byte-forge">
-    <div id="carousel-wrapper">
-      <div id="carousel-track">
-
-  
-        <div class="carousel-slide">
-          <div class="cards-row">
-            <div class="carousel-card"><img src="assets/img/project-01.png" alt="FORMAR"></div>
-          </div>
-          <div class="carousel-description">O mapa brasileiro do ensino superior. Ache a faculdade perfeita para você.</div>
-          <button class="carousel-button">SAIBA MAIS</button>
-        </div>
-
-
-        <div class="carousel-slide">
-          <div class="cards-row">
-            <div class="carousel-card"><img src="assets/img/project-02.png" alt="HEAT NAVIGATION"></div>
-          </div>
-          <div class="carousel-description">Mapeamento de ilhas de calor em tempo real.</div>
-          <button class="carousel-button">SAIBA MAIS</button>
-        </div>
-
-   
-        <div class="carousel-slide">
-          <div class="cards-row">
-            <div class="carousel-card"><img src="assets/img/project-04.png" alt="PET FINDER"></div>
-          </div>
-          <div class="carousel-description">Comunidade para animais de estimação perdidos com reconhecimento inteligente.</div>
-          <button class="carousel-button">SAIBA MAIS</button>
-        </div>
-
-   
-        <div class="carousel-slide">
-          <div class="cards-row">
-            <div class="carousel-card"><img src="assets/img/project-03.png" alt="OPEN MIND"></div>
-          </div>
-          <div class="carousel-description">Pré-diagnóstico do Transtorno de Déficit de Atenção. Rápido, intuitivo e fundamentado.</div>
-          <button class="carousel-button">SAIBA MAIS</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <section id="projeto" class="projeto-lia py-5 lia-font">
-    <div class="container">
-
-      <img src="assets/img/logotipo-ponskan.png" alt="Logo PONSKAN" id="logo-lia">
-
-      <p class="descricao">
-        O PONSKAN é um aplicativo móvel de agricultura de precisão desenvolvido para o monitoramento fitossanitário da
-        cultura da tangerina ponkan.
-        <br><br>
-        Utilizamos algoritmos de visão computacional para o pré-diagnóstico da pinta preta dos citros a partir de
-        imagens capturadas por câmera, permitindo a detecção precoce de sintomas foliares e frutíferos.
-      </p>
-
-      <p class="destaque mt-4">
-        <strong>
-          Isso é agricultura de precisão<br>
-          que a sua tangerina precisa,<br>
-          na palma da sua mão.
-        </strong>
-      </p>
-
-      <img src="assets/img/produtor.png" alt="Produtor Agrícola" style="width: 300px;">
-
-    </div>
-  </section>
-
-
-
-  <section class="oque-e py-5 lia-font">
-    <h2 class="titulo mb-4">O que é?</h2>
-
-    <div class="card-carousel">
-
-      <!-- Abas de navegação -->
-      <div class="tabs">
-        <button class="tab active" onclick="trocarAba(0)">
-          <span class="bolinha"><span class="bolinha-preenchida"></span></span>
-          <span>Problema</span>
-        </button>
-        <button class="tab" onclick="trocarAba(1)">
-          <span class="bolinha"><span class="bolinha-preenchida"></span></span>
-          <span>Metodologia</span>
-        </button>
-        <button class="tab" onclick="trocarAba(2)">
-          <span class="bolinha"><span class="bolinha-preenchida"></span></span>
-          <span>Solução</span>
-        </button>
+    <!-- ===================== HERO (BYTEFORGE) ===================== -->
+    <section class="hero theme-forge theme-forge--dark" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__decor" aria-hidden="true">
+        <span class="pixel pixel--red"></span>
+        <span class="pixel pixel--orange"></span>
+        <span class="pixel pixel--yellow"></span>
+        <span class="pixel pixel--white"></span>
       </div>
 
-      <!-- Conteúdo dos slides -->
-      <div class="conteudo-carousel">
-
-        <!-- Aba 1: Problema -->
-        <div class="slide active">
-          <div class="texto">
-            <h5><strong>A Pinta Preta</strong></h5>
-            <p>
-              A pinta preta dos citros, causada pelo fungo <em>Phyllosticta citricarpa</em>, afeta frutas cítricas em
-              regiões quentes e úmidas, sendo disseminada por esporos transportados pela chuva e pelo vento.
-              <br><br>
-              A doença causa perdas econômicas significativas, reduzindo a qualidade dos frutos e limitando exportações,
-              além de elevar custos de manejo e controle nas lavouras.
-              <br><br>
-              Seus sintomas incluem manchas escuras na casca, folhas e ramos, agravadas por alta umidade, calor e má
-              ventilação, que favorecem o desenvolvimento do fungo.
-            </p>
-          </div>
-          <img src="assets/img/cbs-photo-01.png" alt="Pinta preta nos citros">
-        </div>
-
-        <!-- Aba 2: Metodologia -->
-        <div class="slide">
-          <div class="texto">
-            <h5><strong>Metodologia aplicada</strong></h5>
-            <p>
-              Você nos envia a foto da fruta pelo celular, e nós te entregamos um pré-diagnóstico fundamentado com o
-              plano de ação mais adequado para sua posição nas próximas semanas.
-              <br><br>
-              Utilizamos o poder das redes neurais convolucionais alinhado com um pré-processamento metódico para
-              identificar os sintomas da pinta preta nas suas frutas e avaliar o grau de severidade.
-              <br><br>
-              Em seguida, nossos algoritmos de recomendação cruzam dados climáticos com georreferenciamento e desenham
-              um passo a passo de manejo inteligente para te ajudar.
-            </p>
-          </div>
-          <img src="assets/img/cbs-photo-03.jpg" alt="Metodologia">
-        </div>
-
-        <!-- Aba 3: Solução -->
-        <div class="slide">
-          <div class="texto">
-            <h5><strong>Solução proposta</strong></h5>
-            <p>
-              Desenvolvemos um aplicativo robusto e intuitivo, que utiliza visão computacional para identificar as áreas
-              mais afetadas da sua lavoura e te auxilia na tomada de decisões.
-              <br><br>
-              O Ponskan não é apenas um classificador de fotos: ele é um sistema de gerenciamento fitossanitário que
-              cabe na palma da sua mão.
-            </p>
-          </div>
-          <img src="assets/img/cbs-photo-02.jpg" alt="Solução">
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-<!-- pulbico alvo -->
-  <section id="publico-alvo" class="py-5 lia-font">
-    <div class="container">
-
-      <h2 class="titulo text-center mb-5">Quem vai usar?</h2>
-
-      <div class="publico-wrapper">
-
-        <div id="coluna-imagens">
-          <div class="left-column">
-            <img src="assets/img/marina.png" alt="Fazendeiro" class="img-publico img-grande">
-            <img src="assets/img/cbs-photo-04.jpg" alt="Dashboard agrícola" class="img-publico img-pequena">
-          </div>
-          <div class="center-column">
-            <img src="assets/img/cbs-photo-06.jpg" alt="Agrônoma" class="img-publico img-vertical">
-          </div>
-          <div class="right-column">
-            <img src="assets/img/wagner.png" alt="Pomar" class="img-publico img-media">
-            <img src="assets/img/clara.png" alt="Análise de frutos" class="img-publico img-quadrada">
-          </div>
-        </div>
-
-        <div id="coluna-texto">
-          <h4 id="subtitulo-publico" class="fw-bold">Público Alvo</h4>
-
-          <p id="descricao-publico">Para os produtores agrícolas, o Ponskan é o <b>sistema de gerenciamento</b> da saúde do pomar.</p>
-          <p>Para os engenheiros agrônomos, o Ponskan é o <b>aplicativo de análise de dados</b> ideal para suas pesquisas.</p>
-          <p>Para os consultores técnicos, o Ponskan é a <b>ferramenta de trabalho</b> que eleva o seu nível profissional.</p>
-          <p>O que o Ponskan pode ser para você?</p>
-
-          <!-- Formulário de sugestão -->
-          <div class="form-sugestao">
-            <input type="text" placeholder="Envie sua sugestão aqui">
-            <button type="button">Enviar</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- depoimento -->
-  <section id="depoimentos" class="lia-font">
-    <div class="container">
-
-      <div class="depoimento-card">
-
-        <!-- Foto do depoente -->
-        <div class="depoimento-foto">
-          <img src="assets/img/seu-antenor.png" alt="Seu Antenor">
-        </div>
-
-        <!-- Texto do depoimento -->
-        <div class="depoimento-conteudo">
-          <span class="depoimento-tag">EXPERIÊNCIA REAL</span>
-
-          <h2 class="depoimento-titulo">O que os produtores estão dizendo</h2>
-
-          <p class="depoimento-texto">
-            "O Ponskan mudou completamente a forma como acompanhamos
-            a saúde do pomar. Hoje conseguimos identificar problemas
-            muito antes deles se espalharem, economizando tempo,
-            insumos e aumentando a produtividade."
+      <div class="container hero__grid">
+        <div class="hero__content" data-reveal-group>
+          <p class="eyebrow" data-reveal>Fábrica de software</p>
+          <h1 class="hero__title" id="hero-title" data-reveal>
+            A <span class="text-accent">excelência</span> no desenvolvimento de software.
+          </h1>
+          <p class="hero__lead" data-reveal>
+            A chama da criatividade e uma sólida base técnica forjam soluções que resolvem problemas reais —
+            da sala de aula ao campo.
           </p>
-
-          <div class="depoimento-autor">
-            <strong>Seu Antenor</strong>
-            <span>Produtor citrícola • Vale do Ribeira</span>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--primary btn--lg btn--pulse" href="#contato">
+              Vamos conversar
+              <span class="icon icon--arrow-right" aria-hidden="true"></span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#vita">Conheça o VITA</a>
           </div>
+          <ul class="tag-list" data-reveal aria-label="Especialidades">
+            <li class="tag">Web</li>
+            <li class="tag">Mobile</li>
+            <li class="tag">Visão computacional</li>
+          </ul>
         </div>
 
+        <!-- Vitrine de mockups oficiais (4:3): troca automática a cada 1,8 s -->
+        <div class="hero__visual showcase" data-showcase data-interval="1800" data-reveal="zoom">
+          <div class="showcase__stage">
+            <figure class="showcase__item is-active">
+              <img src="assets/img/mockups/byteforge/logo-mockup-01.webp" alt="MacBook com a assinatura principal da ByteForge" width="1200" height="900">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/vita/web-03.webp" alt="Dashboard da versão web do VITA em um notebook" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/byteforge/logo-mockup-05.webp" alt="Tablet com a assinatura negativa da ByteForge" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/vita/mobile-04.webp" alt="Telas de abertura, login e câmera do app VITA" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/byteforge/logo-mockup-03.webp" alt="MacBook com a assinatura monocromática negativa da ByteForge" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/vita/web-04.webp" alt="Mapa de infecções da versão web do VITA" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/byteforge/logo-mockup-07.webp" alt="Dois tablets com as assinaturas positiva e negativa da ByteForge" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/vita/mobile-06.webp" alt="Telas de análise, histórico e início do app VITA" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/byteforge/logo-mockup-04.webp" alt="MacBook com fundo Bigorna e a assinatura negativa da ByteForge" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/vita/web-02.webp" alt="Lista de análises da versão web do VITA" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/byteforge/logo-mockup-06.webp" alt="Tablet com a assinatura principal da ByteForge" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/vita/mobile-14.webp" alt="Tela inicial do app VITA" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/byteforge/logo-mockup-02.webp" alt="MacBook com a assinatura monocromática positiva da ByteForge" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/vita/web-01.webp" alt="Tela de login da versão web do VITA" width="1200" height="900" loading="lazy">
+            </figure>
+            <figure class="showcase__item">
+              <img src="assets/img/mockups/byteforge/logo-mockup-08.webp" alt="Tablets com as versões monocromáticas da ByteForge" width="1200" height="900" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#quem-somos" aria-label="Rolar para a próxima seção">
+        <span class="scroll-cue__mouse" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ===================== QUEM SOMOS / O QUE FAZEMOS ===================== -->
+    <section class="section about theme-forge" id="quem-somos" aria-label="Sobre a ByteForge">
+      <div class="container about__grid" data-reveal-group>
+        <article class="about__item" data-reveal>
+          <span class="about__number" aria-hidden="true">01</span>
+          <p class="eyebrow">Quem somos?</p>
+          <h2 class="section-title">Uma visão sobre o mercado de software</h2>
+          <p>
+            Seu negócio não precisa se aventurar em tendências passageiras ou promessas milagrosas. Procuram-se
+            solucionadores de problemas que compreendam e executem aquilo que o cliente deseja, de forma eficiente e
+            segura.
+          </p>
+          <p>
+            É assim que a ByteForge desenvolve o seu software: <strong>a chama da criatividade</strong> e uma
+            <strong>sólida base técnica</strong> forjam a excelência.
+          </p>
+        </article>
+
+        <article class="about__item" data-reveal>
+          <span class="about__number" aria-hidden="true">02</span>
+          <p class="eyebrow">O que fazemos?</p>
+          <h2 class="section-title">Produtos de software com excelência</h2>
+          <p>
+            Nossos sistemas atendem grandes empresas, novos empreendimentos e comunidades inteiras nos ramos de
+            administração, venda, comunicação, educação e muitos outros.
+          </p>
+          <p>
+            Utilizamos tanto <strong>tecnologias bem fundamentadas</strong> como <strong>disruptivas</strong> para
+            proporcionar resultados inovadores, com os menores riscos possíveis. Desenvolver sistemas de informação
+            não é uma tarefa simples — é uma <strong>atividade essencial</strong> em um mundo interconectado e de altas
+            velocidades.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== SOLUÇÕES (CARROSSEL) ===================== -->
+    <section class="section solutions theme-forge theme-forge--dark" id="solucoes" aria-labelledby="solucoes-title">
+      <div class="container">
+        <header class="section-heading" data-reveal>
+          <p class="eyebrow">Soluções</p>
+          <h2 class="section-title" id="solucoes-title">Conheça nossos projetos</h2>
+          <p class="section-lead">Educação, clima urbano, comunidade, saúde e agronegócio: cada produto nasce de um
+            problema real.</p>
+        </header>
+
+        <div class="carousel carousel--projects" data-carousel data-autoplay="5000" data-reveal>
+          <ul class="carousel__track" aria-label="Projetos da ByteForge">
+            <li class="carousel__slide">
+              <article class="project-card project-card--featured">
+                <span class="project-card__badge">Último projeto</span>
+                <div class="project-card__media project-card__media--vita">
+                  <img src="assets/img/mockups/vita/logo-card-10.webp" alt="Cartão com o logotipo do VITA"
+                    width="800" height="600" loading="lazy">
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__tag">Agronegócio</p>
+                  <h3 class="project-card__title">VITA</h3>
+                  <p class="project-card__text">Pré-diagnóstico da pinta preta dos citros por visão computacional, na palma da mão.</p>
+                  <a class="link-arrow" href="#vita">Ver o projeto <span class="icon icon--arrow-right"
+                      aria-hidden="true"></span></a>
+                </div>
+              </article>
+            </li>
+            <li class="carousel__slide">
+              <article class="project-card">
+                <div class="project-card__media">
+                  <img src="assets/img/projects/formar.webp" alt="Logo do Formar" width="480" height="509"
+                    loading="lazy">
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__tag">Educação</p>
+                  <h3 class="project-card__title">Formar</h3>
+                  <p class="project-card__text">O mapa brasileiro do ensino superior. Ache a faculdade perfeita para você.</p>
+                  <a class="link-arrow" href="#contato" data-subject="projeto">Quero algo assim <span
+                      class="icon icon--arrow-right" aria-hidden="true"></span></a>
+                </div>
+              </article>
+            </li>
+            <li class="carousel__slide">
+              <article class="project-card">
+                <div class="project-card__media project-card__media--dark">
+                  <img src="assets/img/projects/heat-navigation.webp" alt="Logo do Heat Navigation" width="480"
+                    height="480" loading="lazy">
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__tag">Clima urbano</p>
+                  <h3 class="project-card__title">Heat Navigation</h3>
+                  <p class="project-card__text">Mapeamento de ilhas de calor em tempo real.</p>
+                  <a class="link-arrow" href="#contato" data-subject="projeto">Quero algo assim <span
+                      class="icon icon--arrow-right" aria-hidden="true"></span></a>
+                </div>
+              </article>
+            </li>
+            <li class="carousel__slide">
+              <article class="project-card">
+                <div class="project-card__media project-card__media--sky">
+                  <img src="assets/img/projects/pet-finder.webp" alt="Logo do Pet Finder" width="480" height="279"
+                    loading="lazy">
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__tag">Comunidade</p>
+                  <h3 class="project-card__title">Pet Finder</h3>
+                  <p class="project-card__text">Comunidade para animais de estimação perdidos com reconhecimento inteligente.</p>
+                  <a class="link-arrow" href="#contato" data-subject="projeto">Quero algo assim <span
+                      class="icon icon--arrow-right" aria-hidden="true"></span></a>
+                </div>
+              </article>
+            </li>
+            <li class="carousel__slide">
+              <article class="project-card">
+                <div class="project-card__media project-card__media--cream">
+                  <img src="assets/img/projects/open-mind.webp" alt="Logo do Open Mind" width="480" height="481"
+                    loading="lazy">
+                </div>
+                <div class="project-card__body">
+                  <p class="project-card__tag">Saúde</p>
+                  <h3 class="project-card__title">Open Mind</h3>
+                  <p class="project-card__text">Pré-diagnóstico do Transtorno de Déficit de Atenção. Rápido, intuitivo e fundamentado.</p>
+                  <a class="link-arrow" href="#contato" data-subject="projeto">Quero algo assim <span
+                      class="icon icon--arrow-right" aria-hidden="true"></span></a>
+                </div>
+              </article>
+            </li>
+          </ul>
+
+          <div class="carousel__controls">
+            <button class="carousel__btn" type="button" data-carousel-prev aria-label="Projeto anterior">
+              <span class="icon icon--arrow-left" aria-hidden="true"></span>
+            </button>
+            <div class="carousel__dots" data-carousel-dots></div>
+            <button class="carousel__btn" type="button" data-carousel-next aria-label="Próximo projeto">
+              <span class="icon icon--arrow-right" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJETO VITA ===================== -->
+    <article class="vita theme-vita" id="vita" aria-labelledby="vita-title">
+
+      <!-- Hero do projeto -->
+      <section class="vita-hero">
+        <div class="container vita-hero__grid">
+          <div class="vita-hero__content" data-reveal-group>
+            <p class="eyebrow" data-reveal>Último projeto • Projeto Integrador</p>
+            <h2 class="vita-logo" id="vita-title" data-reveal>
+              <img src="assets/img/brand/vita-descritor-positiva.svg" alt="VITA — monitoramento fitossanitário da ponkan"
+                width="1382" height="562">
+            </h2>
+            <p class="vita-hero__lead" data-reveal>
+              Aplicativo de agricultura de precisão para o monitoramento fitossanitário da cultura da
+              <strong>tangerina ponkan</strong>.
+            </p>
+            <p class="vita-hero__text" data-reveal>
+              Algoritmos de visão computacional fazem o pré-diagnóstico da pinta preta dos citros a partir de imagens
+              capturadas pela câmera, permitindo a detecção precoce de sintomas em folhas e frutos.
+            </p>
+            <div class="hero__actions" data-reveal>
+              <a class="btn btn--primary btn--lg" href="#contato" data-subject="vita">
+                Quero conhecer o VITA
+                <span class="icon icon--arrow-right" aria-hidden="true"></span>
+              </a>
+              <a class="btn btn--ghost btn--lg" href="#como-funciona">Como funciona</a>
+            </div>
+
+            <dl class="stats" data-reveal>
+              <div class="stats__item">
+                <dt class="stats__label">Plataformas: Web e Android</dt>
+                <dd class="stats__value" data-count-to="2">2</dd>
+              </div>
+              <div class="stats__item">
+                <dt class="stats__label">Etapas de análise</dt>
+                <dd class="stats__value" data-count-to="4">4</dd>
+              </div>
+              <div class="stats__item">
+                <dt class="stats__label">ODS da ONU atendidos</dt>
+                <dd class="stats__value" data-count-to="3">3</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Leque de celulares com chips flutuantes -->
+          <!-- Mockup oficial (três telas do app) com chips flutuantes -->
+          <div class="vita-hero__visual" data-reveal="zoom">
+            <span class="blob" aria-hidden="true"></span>
+            <img class="vita-hero__phones" src="assets/img/mockups/vita/hero-phones.webp"
+              alt="Telas de análise, histórico e início do app VITA" width="1000" height="803">
+            <span class="chip chip--top" aria-hidden="true"><span class="chip__dot"></span>Pré-diagnóstico em instantes</span>
+            <span class="chip chip--bottom" aria-hidden="true"><span class="icon icon--map-pin"></span>Mapa de infecções</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Frase de destaque -->
+      <section class="container highlight" aria-label="Destaque">
+        <div class="highlight__panel" data-reveal="zoom">
+          <img class="highlight__art" src="assets/img/illustrations/producer.webp"
+            alt="Ilustração de um produtor com tablet no pomar" width="301" height="296" loading="lazy">
+          <p class="highlight__text">
+            Isso é agricultura de precisão que a sua tangerina precisa, <span class="text-accent">na palma da sua
+              mão.</span>
+          </p>
+          <img class="highlight__art" src="assets/img/illustrations/agronomist.webp"
+            alt="Ilustração de uma agrônoma analisando dados no tablet" width="330" height="287" loading="lazy">
+        </div>
+      </section>
+
+      <!-- O que é? (abas) -->
+      <section class="section" id="o-que-e" aria-labelledby="o-que-e-title">
+        <div class="container">
+          <header class="section-heading" data-reveal>
+            <p class="eyebrow">Contexto</p>
+            <h2 class="section-title" id="o-que-e-title">O que é?</h2>
+          </header>
+
+          <div class="tabs" data-tabs data-reveal>
+            <div class="tabs__list" role="tablist" aria-label="Problema, metodologia e solução">
+              <button class="tabs__tab" type="button" role="tab" id="tab-problema" aria-controls="painel-problema"
+                aria-selected="true">
+                <span class="tabs__dot" aria-hidden="true"></span>Problema
+              </button>
+              <button class="tabs__tab" type="button" role="tab" id="tab-metodologia"
+                aria-controls="painel-metodologia" aria-selected="false" tabindex="-1">
+                <span class="tabs__dot" aria-hidden="true"></span>Metodologia
+              </button>
+              <button class="tabs__tab" type="button" role="tab" id="tab-solucao" aria-controls="painel-solucao"
+                aria-selected="false" tabindex="-1">
+                <span class="tabs__dot" aria-hidden="true"></span>Solução
+              </button>
+              <span class="tabs__indicator" aria-hidden="true"></span>
+            </div>
+
+            <div class="tabs__panel" role="tabpanel" id="painel-problema" aria-labelledby="tab-problema" tabindex="0">
+              <div class="tabs__text">
+                <h3>A pinta preta</h3>
+                <p>A pinta preta dos citros, causada pelo fungo <em>Phyllosticta citricarpa</em>, afeta frutas cítricas
+                  em regiões quentes e úmidas, sendo disseminada por esporos transportados pela chuva e pelo vento.</p>
+                <p>A doença causa perdas econômicas significativas, reduzindo a qualidade dos frutos e limitando
+                  exportações, além de elevar custos de manejo e controle nas lavouras.</p>
+                <p>Seus sintomas incluem manchas escuras na casca, folhas e ramos, agravadas por alta umidade, calor e
+                  má ventilação, que favorecem o desenvolvimento do fungo.</p>
+              </div>
+              <img class="tabs__image" src="assets/img/photos/cbs-symptoms.webp"
+                alt="Tangerina com manchas escuras da pinta preta" width="900" height="668" loading="lazy">
+            </div>
+
+            <div class="tabs__panel" role="tabpanel" id="painel-metodologia" aria-labelledby="tab-metodologia"
+              tabindex="0" hidden>
+              <div class="tabs__text">
+                <h3>Metodologia aplicada</h3>
+                <p>Você envia a foto da fruta pelo celular e recebe um pré-diagnóstico fundamentado, com o plano de ação
+                  mais adequado para as próximas semanas.</p>
+                <p>Usamos o poder das redes neurais convolucionais, alinhado a um pré-processamento metódico, para
+                  identificar os sintomas da pinta preta nas suas frutas.</p>
+                <p>Em seguida, os algoritmos de recomendação cruzam dados climáticos com georreferenciamento e desenham
+                  um passo a passo de manejo inteligente.</p>
+              </div>
+              <img class="tabs__image" src="assets/img/photos/cbs-neural-network.webp"
+                alt="Representação de uma rede neural em uma tela" width="900" height="900" loading="lazy">
+            </div>
+
+            <div class="tabs__panel" role="tabpanel" id="painel-solucao" aria-labelledby="tab-solucao" tabindex="0"
+              hidden>
+              <div class="tabs__text">
+                <h3>Solução proposta</h3>
+                <p>Um aplicativo robusto e intuitivo, que usa visão computacional para identificar as áreas mais
+                  afetadas da sua lavoura e auxilia na tomada de decisões.</p>
+                <p>O VITA não é apenas um classificador de fotos: é um sistema de gerenciamento fitossanitário que
+                  cabe na palma da sua mão.</p>
+              </div>
+              <img class="tabs__image" src="assets/img/photos/cbs-scanning.webp"
+                alt="Celular fotografando uma tangerina" width="900" height="900" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Como funciona (cards que giram) -->
+      <section class="section section--tinted" id="como-funciona" aria-labelledby="como-funciona-title">
+        <div class="container">
+          <header class="section-heading" data-reveal>
+            <p class="eyebrow">Tecnologia</p>
+            <h2 class="section-title" id="como-funciona-title">Como funciona</h2>
+            <p class="section-lead">A base do projeto é o treinamento de redes neurais para reconhecer sintomas da pinta
+              preta por meio de técnicas de visão computacional.</p>
+          </header>
+
+          <ul class="flip-grid" data-reveal-group>
+            <li data-reveal>
+              <button class="flip-card" type="button" aria-pressed="false" data-flip-card>
+                <span class="flip-card__inner">
+                  <span class="flip-card__face flip-card__face--front">
+                    <span class="flip-card__step">01</span>
+                    <span class="icon icon--fa-eye flip-card__icon" aria-hidden="true"></span>
+                    <span class="flip-card__title">Visão computacional</span>
+                    <span>O VITA consegue enxergar os sintomas.</span>
+                    <span class="flip-card__hint">Toque para saber mais</span>
+                  </span>
+                  <span class="flip-card__face flip-card__face--back">
+                    As fotos da fruta são tratadas para permitir a análise de imagens com técnicas modernas.
+                  </span>
+                </span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="flip-card" type="button" aria-pressed="false" data-flip-card>
+                <span class="flip-card__inner">
+                  <span class="flip-card__face flip-card__face--front">
+                    <span class="flip-card__step">02</span>
+                    <span class="icon icon--fa-brain flip-card__icon" aria-hidden="true"></span>
+                    <span class="flip-card__title">Inteligência artificial</span>
+                    <span>O VITA aprende com os dados.</span>
+                    <span class="flip-card__hint">Toque para saber mais</span>
+                  </span>
+                  <span class="flip-card__face flip-card__face--back">
+                    Com redes neurais, o sistema entende padrões e calcula a probabilidade de a amostra estar doente ou
+                    não.
+                  </span>
+                </span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="flip-card" type="button" aria-pressed="false" data-flip-card>
+                <span class="flip-card__inner">
+                  <span class="flip-card__face flip-card__face--front">
+                    <span class="flip-card__step">03</span>
+                    <span class="icon icon--fa-clipboard flip-card__icon" aria-hidden="true"></span>
+                    <span class="flip-card__title">Pré-diagnóstico</span>
+                    <span>O sistema interpreta.</span>
+                    <span class="flip-card__hint">Toque para saber mais</span>
+                  </span>
+                  <span class="flip-card__face flip-card__face--back">
+                    O resultado da rede neural é cruzado com dados climáticos e a sua geolocalização para gerar
+                    relatórios e planos de ação inteligentes.
+                  </span>
+                </span>
+              </button>
+            </li>
+            <li data-reveal>
+              <button class="flip-card" type="button" aria-pressed="false" data-flip-card>
+                <span class="flip-card__inner">
+                  <span class="flip-card__face flip-card__face--front">
+                    <span class="flip-card__step">04</span>
+                    <span class="icon icon--fa-leaf flip-card__icon" aria-hidden="true"></span>
+                    <span class="flip-card__title">Sustentabilidade</span>
+                    <span>O produtor toma decisões inteligentes.</span>
+                    <span class="flip-card__hint">Toque para saber mais</span>
+                  </span>
+                  <span class="flip-card__face flip-card__face--back">
+                    O VITA leva a agricultura de precisão a pequenos e médios produtores.
+                  </span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Fluxo de processamento (timeline reaproveita o módulo de abas) -->
+      <section class="section" id="fluxo" aria-labelledby="fluxo-title">
+        <div class="container">
+          <header class="section-heading" data-reveal>
+            <p class="eyebrow">Fluxo de processamento</p>
+            <h2 class="section-title" id="fluxo-title">Como identificar a pinta preta</h2>
+            <p class="section-lead">Passe o cursor ou toque nas etapas da análise.</p>
+          </header>
+
+          <div class="timeline" data-tabs data-tabs-hover data-reveal>
+            <ol class="timeline__steps" role="tablist" aria-label="Etapas da análise">
+              <li role="presentation">
+                <button class="timeline__point" type="button" role="tab" id="etapa-1-tab" aria-controls="etapa-1"
+                  aria-selected="true">
+                  <span class="timeline__number">1</span>
+                  <span class="timeline__label">Captura</span>
+                </button>
+              </li>
+              <li role="presentation">
+                <button class="timeline__point" type="button" role="tab" id="etapa-2-tab" aria-controls="etapa-2"
+                  aria-selected="false" tabindex="-1">
+                  <span class="timeline__number">2</span>
+                  <span class="timeline__label">Pré-processamento</span>
+                </button>
+              </li>
+              <li role="presentation">
+                <button class="timeline__point" type="button" role="tab" id="etapa-3-tab" aria-controls="etapa-3"
+                  aria-selected="false" tabindex="-1">
+                  <span class="timeline__number">3</span>
+                  <span class="timeline__label">Classificação</span>
+                </button>
+              </li>
+              <li role="presentation">
+                <button class="timeline__point" type="button" role="tab" id="etapa-4-tab" aria-controls="etapa-4"
+                  aria-selected="false" tabindex="-1">
+                  <span class="timeline__number">4</span>
+                  <span class="timeline__label">Resultados</span>
+                </button>
+              </li>
+            </ol>
+
+            <div class="timeline__panel" role="tabpanel" id="etapa-1" aria-labelledby="etapa-1-tab">
+              <h3>Captura de imagens</h3>
+              <p>Capture ou faça upload de 1 a 4 imagens. O app orienta como obter os melhores ângulos.</p>
+            </div>
+            <div class="timeline__panel" role="tabpanel" id="etapa-2" aria-labelledby="etapa-2-tab" hidden>
+              <h3>Pré-processamento</h3>
+              <p>Sua foto é tratada para melhorar a precisão e a velocidade da detecção. Apenas aguarde.</p>
+            </div>
+            <div class="timeline__panel" role="tabpanel" id="etapa-3" aria-labelledby="etapa-3-tab" hidden>
+              <h3>Classificação</h3>
+              <p>A rede neural dá a melhor resposta com base em aprendizado profundo sobre um conjunto diversificado de
+                dados de treino.</p>
+            </div>
+            <div class="timeline__panel" role="tabpanel" id="etapa-4" aria-labelledby="etapa-4-tab" hidden>
+              <h3>Resultados</h3>
+              <p>O pré-diagnóstico fica disponível em instantes e todos os resultados são salvos para consulta a qualquer
+                momento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Plataformas -->
+      <section class="section section--tinted" id="plataformas" aria-labelledby="plataformas-title">
+        <div class="container">
+          <header class="section-heading" data-reveal>
+            <p class="eyebrow">Plataformas</p>
+            <h2 class="section-title" id="plataformas-title">Do pomar ao escritório</h2>
+            <p class="section-lead">As telas mais recentes do VITA, no celular e no navegador.</p>
+          </header>
+
+          <div class="screens" data-tabs data-reveal>
+            <div class="screens__switch" role="tablist" aria-label="Escolha a plataforma">
+              <button class="screens__tab" type="button" role="tab" id="tab-mobile" aria-controls="painel-mobile"
+                aria-selected="true">Mobile • Android</button>
+              <button class="screens__tab" type="button" role="tab" id="tab-web" aria-controls="painel-web"
+                aria-selected="false" tabindex="-1">Web</button>
+            </div>
+
+            <div class="screens__panel" role="tabpanel" id="painel-mobile" aria-labelledby="tab-mobile">
+              <p class="screens__text"><strong>No campo:</strong> capture fotos, receba o pré-diagnóstico e acompanhe
+                as análises e o plano de ação.</p>
+              <div class="carousel carousel--mockups" data-carousel>
+                <ul class="carousel__track" aria-label="Mockups do app mobile">
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-04.webp" alt="Mockup da versão mobile do VITA: abertura, login e câmera"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Abertura, login e câmera</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-06.webp" alt="Mockup da versão mobile do VITA: análise, histórico e início"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Análise, histórico e início</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-14.webp" alt="Mockup da versão mobile do VITA: tela inicial"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Tela inicial</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-13.webp" alt="Mockup da versão mobile do VITA: captura da imagem"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Captura da imagem</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-12.webp" alt="Mockup da versão mobile do VITA: login"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Login</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-09.webp" alt="Mockup da versão mobile do VITA: fluxo completo do app"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Fluxo completo do app</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-11.webp" alt="Mockup da versão mobile do VITA: início, histórico e resultado"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Início, histórico e resultado</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-01.webp" alt="Mockup da versão mobile do VITA: histórico e câmera"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Histórico e câmera</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/mobile-02.webp" alt="Mockup da versão mobile do VITA: abertura e câmera"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Abertura e câmera</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+                <div class="carousel__controls">
+                  <button class="carousel__btn" type="button" data-carousel-prev aria-label="Mockup anterior">
+                    <span class="icon icon--arrow-left" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel__dots" data-carousel-dots></div>
+                  <button class="carousel__btn" type="button" data-carousel-next aria-label="Próximo mockup">
+                    <span class="icon icon--arrow-right" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="screens__panel" role="tabpanel" id="painel-web" aria-labelledby="tab-web" hidden>
+              <p class="screens__text"><strong>No escritório:</strong> gerencie as análises, acompanhe os indicadores
+                e visualize o mapa de infecções da propriedade.</p>
+              <div class="carousel carousel--mockups" data-carousel>
+                <ul class="carousel__track" aria-label="Mockups da versão web">
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-03.webp" alt="Mockup da versão web do VITA: dashboard"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Dashboard</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-02.webp" alt="Mockup da versão web do VITA: lista de análises"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Lista de análises</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-04.webp" alt="Mockup da versão web do VITA: mapa de infecções"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Mapa de infecções</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-01.webp" alt="Mockup da versão web do VITA: login"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Login</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-07.webp" alt="Mockup da versão web do VITA: dashboard no monitor"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Dashboard no monitor</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-08.webp" alt="Mockup da versão web do VITA: análises no monitor"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Análises no monitor</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-05.webp" alt="Mockup da versão web do VITA: mapa no notebook"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Mapa no notebook</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-06.webp" alt="Mockup da versão web do VITA: login no monitor"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Login no monitor</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-10.webp" alt="Mockup da versão web do VITA: detalhe do dashboard"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Detalhe do dashboard</figcaption>
+                    </figure>
+                  </li>
+                  <li class="carousel__slide">
+                    <figure class="screen">
+                      <img src="assets/img/mockups/vita/web-09.webp" alt="Mockup da versão web do VITA: detalhe das análises"
+                        width="1200" height="900" loading="lazy">
+                      <figcaption>Detalhe das análises</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+                <div class="carousel__controls">
+                  <button class="carousel__btn" type="button" data-carousel-prev aria-label="Mockup anterior">
+                    <span class="icon icon--arrow-left" aria-hidden="true"></span>
+                  </button>
+                  <div class="carousel__dots" data-carousel-dots></div>
+                  <button class="carousel__btn" type="button" data-carousel-next aria-label="Próximo mockup">
+                    <span class="icon icon--arrow-right" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Público-alvo -->
+      <section class="section" id="publico-alvo" aria-labelledby="publico-title">
+        <div class="container">
+          <header class="section-heading" data-reveal>
+            <p class="eyebrow">Público-alvo</p>
+            <h2 class="section-title" id="publico-title">Quem vai usar?</h2>
+          </header>
+
+          <div class="audience">
+            <div class="audience__collage" data-reveal-group>
+              <img class="audience__img audience__img--tall" src="assets/img/photos/lab-analysis.webp"
+                alt="Agrônomo analisando tangerinas em laboratório" width="896" height="1600" loading="lazy"
+                data-reveal="left">
+              <img class="audience__img" src="assets/img/photos/harvest.webp" alt="Produtor colhendo tangerinas"
+                width="900" height="676" loading="lazy" data-reveal>
+              <img class="audience__img" src="assets/img/photos/producers.webp"
+                alt="Duas produtoras sorrindo no pomar" width="900" height="676" loading="lazy" data-reveal>
+            </div>
+
+            <div class="audience__content" data-reveal="right">
+              <ul class="check-list">
+                <li>Para <strong>produtores agrícolas</strong>, o VITA é o sistema de gerenciamento da saúde do pomar.
+                </li>
+                <li>Para <strong>engenheiros agrônomos</strong>, é o aplicativo de análise de dados ideal para suas
+                  pesquisas.</li>
+                <li>Para <strong>consultores técnicos</strong>, é a ferramenta de trabalho que eleva o seu nível
+                  profissional.</li>
+              </ul>
+              <p class="audience__question">O que o VITA pode ser para você?</p>
+              <a class="btn btn--primary" href="#contato" data-subject="sugestao">
+                Envie sua sugestão
+                <span class="icon icon--arrow-right" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Depoimentos -->
+      <section class="section section--tinted" id="depoimentos" aria-labelledby="depoimentos-title">
+        <div class="container">
+          <header class="section-heading" data-reveal>
+            <p class="eyebrow">Depoimentos</p>
+            <h2 class="section-title" id="depoimentos-title">O que estão dizendo</h2>
+          </header>
+
+          <figure class="testimonial-featured" data-reveal>
+            <img class="testimonial-featured__photo" src="assets/img/testimonials/antenor.webp" alt="" width="320"
+              height="320" loading="lazy">
+            <blockquote class="testimonial-featured__quote">
+              <p>“O VITA mudou completamente a forma como acompanhamos a saúde do pomar. Hoje identificamos
+                problemas muito antes de eles se espalharem, economizando tempo e insumos e aumentando a
+                produtividade.”</p>
+            </blockquote>
+            <figcaption class="person testimonial-featured__author">
+              <strong class="person__name">Seu Antenor</strong>
+              <span class="person__role">Produtor citrícola • Vale do Ribeira</span>
+            </figcaption>
+          </figure>
+
+          <div class="carousel carousel--testimonials" data-carousel data-autoplay="6000" data-reveal>
+            <ul class="carousel__track" aria-label="Mais depoimentos">
+              <li class="carousel__slide">
+                <figure class="testimonial">
+                  <blockquote class="testimonial__quote">
+                    <p>“Antes eu só percebia a pinta preta quando a fruta já estava perdida. Agora tiro a foto no pé e
+                      já sei se preciso agir.”</p>
+                  </blockquote>
+                  <figcaption class="person">
+                    <img class="person__photo" src="assets/img/testimonials/wagner.webp" alt="" width="320"
+                      height="320" loading="lazy">
+                    <span><strong class="person__name">Wagner</strong>
+                      <span class="person__role">Produtor de tangerina ponkan</span></span>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="carousel__slide">
+                <figure class="testimonial">
+                  <blockquote class="testimonial__quote">
+                    <p>“Os resultados ficam salvos, então comparo diagnósticos ao longo da safra e oriento os produtores
+                      com muito mais segurança.”</p>
+                  </blockquote>
+                  <figcaption class="person">
+                    <img class="person__photo" src="assets/img/testimonials/marina.webp" alt="" width="320"
+                      height="320" loading="lazy">
+                    <span><strong class="person__name">Marina</strong>
+                      <span class="person__role">Engenheira agrônoma</span></span>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="carousel__slide">
+                <figure class="testimonial">
+                  <blockquote class="testimonial__quote">
+                    <p>“Levo o VITA em todas as visitas. Em poucos minutos tenho um pré-diagnóstico para discutir com o
+                      produtor e priorizar o manejo.”</p>
+                  </blockquote>
+                  <figcaption class="person">
+                    <img class="person__photo" src="assets/img/testimonials/ricardo.webp" alt="" width="320"
+                      height="320" loading="lazy">
+                    <span><strong class="person__name">Ricardo</strong>
+                      <span class="person__role">Consultor técnico</span></span>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="carousel__slide">
+                <figure class="testimonial">
+                  <blockquote class="testimonial__quote">
+                    <p>“Uso o app no campo experimental para acompanhar os sintomas. É uma ferramenta prática para quem
+                      está aprendendo fitossanidade.”</p>
+                  </blockquote>
+                  <figcaption class="person">
+                    <img class="person__photo" src="assets/img/testimonials/clara.webp" alt="" width="320"
+                      height="320" loading="lazy">
+                    <span><strong class="person__name">Clara</strong>
+                      <span class="person__role">Estudante de Agronomia</span></span>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="carousel__slide">
+                <figure class="testimonial">
+                  <blockquote class="testimonial__quote">
+                    <p>“O mapa de infecções mostra onde concentrar o manejo. Aplicamos insumos só onde realmente é
+                      necessário.”</p>
+                  </blockquote>
+                  <figcaption class="person">
+                    <img class="person__photo" src="assets/img/testimonials/mauricio.webp" alt="" width="320"
+                      height="320" loading="lazy">
+                    <span><strong class="person__name">Maurício</strong>
+                      <span class="person__role">Gerente de fazenda</span></span>
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+
+            <div class="carousel__controls">
+              <button class="carousel__btn" type="button" data-carousel-prev aria-label="Depoimento anterior">
+                <span class="icon icon--arrow-left" aria-hidden="true"></span>
+              </button>
+              <div class="carousel__dots" data-carousel-dots></div>
+              <button class="carousel__btn" type="button" data-carousel-next aria-label="Próximo depoimento">
+                <span class="icon icon--arrow-right" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+
+          <p class="note">Depoimentos de personas ilustrativas, criadas para a validação do conceito do projeto.</p>
+        </div>
+      </section>
+
+      <!-- Assinatura de endosso: "VITA, desenvolvido por ByteForge" -->
+      <footer class="vita__signature">
+        <img src="assets/img/brand/vita-endosso-positiva.svg" alt="VITA, desenvolvido por ByteForge" width="2272"
+          height="449" loading="lazy">
+      </footer>
+    </article>
+
+    <!-- ===================== EQUIPE (reaproveita o módulo de abas) ===================== -->
+    <section class="section section--tinted team theme-forge" id="equipe" aria-labelledby="equipe-title">
+      <div class="container">
+        <header class="section-heading" data-reveal>
+          <p class="eyebrow">Nossa equipe</p>
+          <h2 class="section-title" id="equipe-title">As pessoas por trás da marca</h2>
+        </header>
+
+        <div class="team__grid" data-tabs data-reveal>
+          <div class="team__list" role="tablist" aria-label="Integrantes da equipe">
+            <button class="team__member" type="button" role="tab" id="membro-arthur-tab"
+              aria-controls="membro-arthur" aria-selected="true">Arthur Parra</button>
+            <button class="team__member team__member--brasa" type="button" role="tab" id="membro-guilherme-tab"
+              aria-controls="membro-guilherme" aria-selected="false" tabindex="-1">Guilherme Shimada</button>
+            <button class="team__member team__member--chama" type="button" role="tab" id="membro-gustavo-tab"
+              aria-controls="membro-gustavo" aria-selected="false" tabindex="-1">Gustavo Kletelinger</button>
+            <button class="team__member team__member--brasa" type="button" role="tab" id="membro-danieli-tab"
+              aria-controls="membro-danieli" aria-selected="false" tabindex="-1">Danieli Fiel</button>
+            <button class="team__member team__member--chama" type="button" role="tab" id="membro-matheus-tab"
+              aria-controls="membro-matheus" aria-selected="false" tabindex="-1">Matheus Bertoldo</button>
+          </div>
+
+          <div class="team__profiles">
+            <figure class="team__profile" role="tabpanel" id="membro-arthur" aria-labelledby="membro-arthur-tab">
+              <img src="assets/img/team/arthur.webp" alt="Foto de Arthur Parra" width="480" height="480"
+                loading="lazy">
+              <figcaption><strong>Arthur Parra</strong>Analista de Dados e Arquiteto de Nuvem</figcaption>
+            </figure>
+            <figure class="team__profile" role="tabpanel" id="membro-guilherme" aria-labelledby="membro-guilherme-tab"
+              hidden>
+              <img src="assets/img/team/guilherme.webp" alt="Foto de Guilherme Shimada" width="480" height="480"
+                loading="lazy">
+              <figcaption><strong>Guilherme Shimada</strong>Desenvolvedor Back-end e DevOps</figcaption>
+            </figure>
+            <figure class="team__profile" role="tabpanel" id="membro-gustavo" aria-labelledby="membro-gustavo-tab"
+              hidden>
+              <img src="assets/img/team/gustavo.webp" alt="Foto de Gustavo Kletelinger" width="480" height="480"
+                loading="lazy">
+              <figcaption><strong>Gustavo Kletelinger</strong>Analista de Rede e Segurança</figcaption>
+            </figure>
+            <figure class="team__profile" role="tabpanel" id="membro-danieli" aria-labelledby="membro-danieli-tab"
+              hidden>
+              <img src="assets/img/team/danieli.webp" alt="Foto de Danieli Fiel" width="480" height="480"
+                loading="lazy">
+              <figcaption><strong>Danieli Fiel</strong>Engenheira de Software e Engenheira de IA</figcaption>
+            </figure>
+            <figure class="team__profile" role="tabpanel" id="membro-matheus" aria-labelledby="membro-matheus-tab"
+              hidden>
+              <img src="assets/img/team/matheus.webp" alt="Foto de Matheus Bertoldo" width="460" height="460"
+                loading="lazy">
+              <figcaption><strong>Matheus Bertoldo</strong>Desenvolvedor Web Front-end e Designer</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section class="section contact theme-forge theme-forge--dark" id="contato" aria-labelledby="contato-title">
+      <div class="container contact__grid">
+        <div class="contact__info" data-reveal="left">
+          <p class="eyebrow">Contato</p>
+          <h2 class="section-title" id="contato-title">Vamos conversar?</h2>
+          <p class="contact__text">Conte a sua ideia, tire dúvidas sobre o VITA ou envie sugestões. A gente responde o quanto antes.</p>
+
+          <address class="contact__channels">
+            <a class="channel" href="tel:+5599999999999">
+              <img src="assets/img/icons/contact-phone.png" alt="" width="40" height="40">
+              <span><small>Telefone</small>(99) 99 9999-9999</span>
+            </a>
+            <a class="channel" href="https://wa.me/5599999999999" target="_blank" rel="noopener">
+              <img src="assets/img/icons/contact-whatsapp.png" alt="" width="40" height="40">
+              <span><small>WhatsApp</small>(99) 99 9999-9999</span>
+            </a>
+            <a class="channel" href="https://instagram.com/byteforge" target="_blank" rel="noopener">
+              <img src="assets/img/icons/contact-instagram.png" alt="" width="40" height="40">
+              <span><small>Instagram</small>@byteforge</span>
+            </a>
+            <a class="channel" href="mailto:byteforge@gmail.com">
+              <img src="assets/img/icons/contact-email.png" alt="" width="40" height="40">
+              <span><small>E-mail</small>byteforge@gmail.com</span>
+            </a>
+          </address>
+        </div>
+
+        <form class="contact-form" data-contact-form novalidate data-reveal="right">
+          <div class="field">
+            <label class="field__label" for="nome">Nome</label>
+            <input class="field__input" id="nome" name="nome" type="text" autocomplete="name" required minlength="2"
+              aria-describedby="nome-erro">
+            <p class="field__error" id="nome-erro" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">E-mail</label>
+            <input class="field__input" id="email" name="email" type="email" autocomplete="email" required
+              aria-describedby="email-erro">
+            <p class="field__error" id="email-erro" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="assunto">Assunto</label>
+            <select class="field__input" id="assunto" name="assunto" required aria-describedby="assunto-erro">
+              <option value="">Selecione…</option>
+              <option value="vita">Quero conhecer o VITA</option>
+              <option value="projeto">Desenvolver um projeto</option>
+              <option value="sugestao">Enviar uma sugestão</option>
+              <option value="outro">Outro assunto</option>
+            </select>
+            <p class="field__error" id="assunto-erro" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="mensagem">Mensagem</label>
+            <textarea class="field__input" id="mensagem" name="mensagem" rows="4" required minlength="10"
+              aria-describedby="mensagem-erro"></textarea>
+            <p class="field__error" id="mensagem-erro" aria-live="polite"></p>
+          </div>
+
+          <button class="btn btn--primary btn--block" type="submit">
+            <span data-submit-label>Enviar mensagem</span>
+            <span class="icon icon--arrow-right" aria-hidden="true"></span>
+          </button>
+          <p class="contact-form__status" role="status" data-form-status></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="site-footer theme-forge theme-forge--dark">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <img src="assets/img/brand/byteforge-principal-negativa.svg" alt="ByteForge" width="104" height="112"
+          loading="lazy">
+        <p>A excelência no desenvolvimento de software.</p>
+      </div>
+
+      <nav aria-label="Rodapé — ByteForge">
+        <h2 class="site-footer__title">Navegue</h2>
+        <ul class="site-footer__links">
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Rodapé — Projeto VITA">
+        <h2 class="site-footer__title">Projeto VITA</h2>
+        <ul class="site-footer__links">
+          <li><a href="#o-que-e">O que é</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#publico-alvo">Público-alvo</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="site-footer__title">Redes</h2>
+        <ul class="site-footer__links">
+          <li><a href="https://instagram.com/byteforge" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://linkedin.com/company/byteforge" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:byteforge@gmail.com">E-mail</a></li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <section class="como-funciona text-center py-5 lia-font">
-    <h2 class="titulo mb-2">Como funciona</h2>
-    <p class="mb-5">
-      A base do projeto é o treinamento de redes neurais para reconhecimento de sintomas da pinta preta
-      através de técnicas de visão computacional.
-    </p>
-
-    <div class="cards-container">
-
-      <!-- Card 1 -->
-      <div class="card-flip" onclick="this.classList.toggle('active')">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-eye fa-2x mb-3"></i>
-            <h5>Visão Computacional</h5>
-            <p>PONSKAN consegue enxergar os sintomas</p>
-          </div>
-          <div class="card-back">
-            <p>As fotos da fruta serão tratadas para permitir análise de imagens com técnicas modernas</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="card-flip" onclick="this.classList.toggle('active')">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-brain fa-2x mb-3"></i>
-            <h5>Inteligência Artificial</h5>
-            <p>PONSKAN aprende com os dados</p>
-          </div>
-          <div class="card-back">
-            <p>Com redes neurais, o sistema entende padrões e gera uma probabilidade da amostra estar doente ou não.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="card-flip" onclick="this.classList.toggle('active')">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-clipboard fa-2x mb-3"></i>
-            <h5>Pré-diagnóstico</h5>
-            <p>O sistema interpreta</p>
-          </div>
-          <div class="card-back">
-            <p>O sistema cruza o resultado da rede neural com dados climáticos e sua geolocalização para gerar relatórios e planos de ação inteligentes</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="card-flip" onclick="this.classList.toggle('active')">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fa fa-leaf fa-2x mb-3"></i>
-            <h5>Sustentabilidade</h5>
-            <p>O produtor toma decisões inteligentes</p>
-          </div>
-          <div class="card-back">
-            <p>PONSKAN proporciona agricultura de precisão para pequenos e médios produtores</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <section id="timeline-section" class="lia-font">
-    <div class="container">
-
-      <!-- Cabeçalho da timeline -->
-      <div class="timeline-header">
-        <span class="timeline-badge">Fluxo de Processamento</span>
-        <h2 id="timeline-title">Como identificar a pinta preta</h2>
-      </div>
-
-      <!-- Pontos -->
-      <div class="timeline-wrapper">
-        <div class="timeline-line"></div>
-
-        <div class="timeline-point active"
-          data-title="Captura de imagens"
-          data-text="Capture ou faça upload de 1 a 4 imagens. Nosso app vai te orientar como pegar os melhores ângulos.">
-          <span>1</span>
-        </div>
-
-        <div class="timeline-point"
-          data-title="Pré-processamento"
-          data-text="Sua foto será manipulada para melhorar a precisão e velocidade da detecção. Apenas aguarde.">
-          <span>2</span>
-        </div>
-
-        <div class="timeline-point"
-          data-title="Classificação"
-          data-text="Nossa rede neural vai dar a melhor resposta com base em um aprendizado profundo com conjunto diversificado de dados de treino.">
-          <span>3</span>
-        </div>
-
-        <div class="timeline-point"
-          data-title="Resultados"
-          data-text="O pré-diagnóstico estará disponível em alguns instantes e todos os resultados serão salvos para que você consulte em qualquer momento.">
-          <span>4</span>
-        </div>
-      </div>
-
-      <!-- Texto dinâmicodo hover nos pontos -->
-      <div class="timeline-content">
-        <p id="timeline-text">Passe o cursor pelas etapas da função de identificação do Ponskan!</p>
-      </div>
-
-    </div>
-  </section>
-
-
-<!-- equipe -->
-  <section id="equipe" class="container text-center py-5 byte-forge">
-    <h2 class="section-title">NOSSA EQUIPE</h2>
-    <h2 class="section-subtitle">AS PESSOAS POR TRÁS DA MARCA</h2>
-
-    <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-12 mb-4">
-        <div class="equipe-grid">
-          <div class="equipe-membro laranja"            onclick="mostrarFoto('assets/img/arthur.jpeg')">ARTHUR PARRA</div>
-          <div class="equipe-membro azul-claro"         onclick="mostrarFoto('assets/img/guilherme-02.jpg')">GUILHERME SHIMADA</div>
-          <div class="equipe-membro azul-escuro"        onclick="mostrarFoto('assets/img/gustavo.jpg')">GUSTAVO KLETELINGER</div>
-          <div class="equipe-membro azul-intermediario" onclick="mostrarFoto('assets/img/dani.jpg')">DANIELI FIEL</div>
-          <div class="equipe-membro azul-escuro"        onclick="mostrarFoto('assets/img/matheus-02.jpg')">MATHEUS BERTOLDO</div>
-        </div>
-      </div>
-
-      <!-- Foto e info do membro selecionado -->
-      <div class="col-lg-6 col-md-12 d-flex flex-column align-items-center justify-content-center">
-        <div class="foto-container mb-3">
-          <img id="foto-membro" src="assets/img/arthur.jpeg" alt="Foto do membro" class="rounded">
-        </div>
-        <div style="max-width: 300px; text-align: center;">
-          <strong id="nome-membro" class="text-warning">Arthur Parra</strong>
-          <p id="descricao-membro" style="font-size: 14px;">Analista de Dados e Arquiteto de Nuvem</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <footer>
-    <div class="footer-container byte-forge">
-
-      <div class="footer-column">
-        <h3>Contate-nos</h3>
-        <p>Telefone: (99) 99 9999-9999</p>
-        <p>Instagram: @byteforge</p>
-        <p>Linkedin: byteforge</p>
-        <p>Email: byteforge@gmail.com</p>
-      </div>
-
-      <div class="footer-column">
-        <h3>Navegue</h3>
-        <p><a href="#quem">Quem somos</a></p>
-        <p><a href="#quem">O que fazemos</a></p>
-        <p><a href="#carousel-container">Soluções</a></p>
-        <p><a href="#projeto">Último Projeto</a></p>
-        <p><a href="#equipe">Equipe</a></p>
-      </div>
-
-      <div class="footer-column footer-logo">
-        <img src="assets/img/logo-negative.png" alt="Logo ByteForge">
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      Todos os direitos reservados (2025-2025)
+    <div class="container site-footer__bottom">
+      <p>© 2025–<span data-current-year>2026</span> ByteForge. Todos os direitos reservados.</p>
+      <p>Empresa fictícia criada para o Projeto Integrador.</p>
     </div>
   </footer>
 
-
-  <!-- Scripts -->
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/js.js"></script>
-
+  <a class="back-to-top" href="#inicio" aria-label="Voltar ao topo" data-back-to-top>
+    <span class="icon icon--arrow-up" aria-hidden="true"></span>
+  </a>
 </body>
 
 </html>
